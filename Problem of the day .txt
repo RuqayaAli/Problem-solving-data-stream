@@ -1,0 +1,26 @@
+Problem of the day: 
+
+
+Algorithm 
+
+	•	Make a triangle using black and white colour of balls.
+	•	give two integers white and black representing the count of white and black balls.
+	•	Black >= 1 and white <= 100. 
+	•	Make a triangle using balls.
+	•	Starting from the top with odd number of white ball. 
+	•	The next line should have black color balls only.
+	•	The lines which have the black color balls should contain even number of ball.
+	•	Determine the hight of triangle. 
+
+
+
+Pseudcode: 
+
+ Triangle using whit&black balls.
+Input Num of white balls.
+Input Num of black balls.
+Num of Black >= 1.
+Num of White <= 100.
+Rows of white colour should be odd number.
+Rows of black colour ( %2 == 0 ) even number of balls .
+Determine the hight of triangle.
