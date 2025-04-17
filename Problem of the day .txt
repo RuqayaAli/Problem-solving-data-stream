@@ -5,7 +5,7 @@ Algorithm
 
 	•	Make a triangle using black and white colour of balls.
 	•	give two integers white and black representing the count of white and black balls.
-	•	Black >= 0 and white <= 0. 
+	•	Black >= 0 and white >= 0. 
 	•	Make a triangle using balls.
 	•	Starting from the top with odd number of white ball. 
 	•	The next line should have black color balls only.
