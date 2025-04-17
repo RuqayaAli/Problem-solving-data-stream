@@ -26,4 +26,7 @@ Pseudcode:
  elif black %2 == 0
  Hight += 1
  black =black -Hight 
+ else
  ptint ("the hight of triangle is: ",Hight)
+ break
+
