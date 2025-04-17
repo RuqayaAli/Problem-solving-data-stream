@@ -5,7 +5,7 @@ Algorithm
 
 	•	Make a triangle using black and white colour of balls.
 	•	give two integers white and black representing the count of white and black balls.
-	•	Black >= 1 and white <= 100. 
+	•	Black >= 0 and white <= 0. 
 	•	Make a triangle using balls.
 	•	Starting from the top with odd number of white ball. 
 	•	The next line should have black color balls only.
@@ -16,11 +16,14 @@ Algorithm
 
 Pseudcode: 
 
- Triangle using whit&black balls.
-Input Num of white balls.
-Input Num of black balls.
-Num of Black >= 1.
-Num of White <= 100.
-Rows of white colour should be odd number.
-Rows of black colour ( %2 == 0 ) even number of balls .
-Determine the hight of triangle.
+ white = 1 
+ black = 10
+ Hight =?
+ while white >= 1 and black >=1
+ if white %2 !== 0
+ Hight += 1
+ white = white - hight
+ elif black %2 == 0
+ Hight += 1
+ black =black -Hight 
+ ptint ("the hight of triangle is: ",Hight)
