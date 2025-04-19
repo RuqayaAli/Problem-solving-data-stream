@@ -1,0 +1,11 @@
+Problem of the day: 
+Pseudcode: 
+
+n=user input 
+#####left side of the row
+for i in range(0,n):
+print(2**i) 
+
+###right side of the row : 
+for i in range (n-2, -1 ,0):
+print(2**i ) 
