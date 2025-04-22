@@ -1,0 +1,23 @@
+list1=[10,20,30,40,50]
+target = 50
+
+def binary_search(list1,target):
+    
+    left =0
+    right = len(list1) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if list1[mid] == target:
+            return mid
+            
+        elif list1[mid] < target:
+            left= mid + 1
+            
+        else:
+            right = mid -1 
+            return -1
+    else:
+     print("Not found")
+        
+result = binary_search(list1,target)
+print(result)
