@@ -1,0 +1,18 @@
+a = int(input("Enter the size of matrix(n*n):"))
+matrix=[]
+print("Enter tne matrix rows: ")
+for r in range(a):
+    row=list(map(int,input().split()))
+    matrix.append(row)
+n=len(matrix)
+
+sum1=0
+sum2=0
+for i in range(n):
+    value1=matrix[i][i]
+    sum1 += value1
+for i in range(n):
+    value2=matrix[i][n-1-i]
+    sum2 += value2
+diffrence = abs(sum2-sum1)
+print("output: ",diffrence)
