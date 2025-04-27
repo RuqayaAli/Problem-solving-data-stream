@@ -1,0 +1,23 @@
+def is_path_crossing(distances):
+    directions = [(0, 1), (-1, 0), (0, -1), (1, 0)]
+    x, y = 0, 0
+    visited = set()
+    visited.add((x, y))
+    
+    dir_idx = 0  # start moving North
+    
+    for dist in distances:
+        dx, dy = directions[dir_idx]
+        for _ in range(dist):
+            x += dx
+            y += dy
+            if (x, y) in visited:
+                return True
+            visited.add((x, y))
+        dir_idx = (dir_idx + 1) % 4
+        
+    return False
+
+print(is_path_crossing([0, 1, 2, 3]))
+print(is_path_crossing([2, 1, 1, 2]))
+
