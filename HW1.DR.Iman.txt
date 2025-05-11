@@ -1,0 +1,68 @@
+import seaborn as sns
+import pandas as pd
+from scipy import stats
+import statsmodels.formula.api as smf
+
+
+df = pd.read_csv("/content/StudentsPerformance.csv")
+print(df)
+df = df.dropna(subset=["math score", "test preparation course"])
+
+#Q1)
+# Drop missing values if any
+df = df.dropna(subset=["math score", "test preparation course"])
+
+# Split into two groups
+completed = df[df["test preparation course"] == "completed"]["math score"]
+none = df[df["test preparation course"] == "none"]["math score"]
+
+# Perform independent t-test
+t_stat, p_value = stats.ttest_ind(completed, none, equal_var=False)  # Welch's t-test
+
+print("T-statistic:", t_stat)
+print("P-value:", p_value)
+
+##Q2
+corr_matrix = df[["math score", "reading score", "writing score"]].corr(method='pearson')
+
+print("📊 Pearson Correlation Matrix:")
+print(corr_matrix)
+plt.figure(figsize=(6, 4))
+sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5)
+plt.title("Correlation Heatmap: Math, Reading, and Writing Scores")
+plt.show()
+
+#Q3
+
+# Rename columns to remove spaces
+df = df.rename(columns={
+    "math score": "math_score",
+    "reading score": "reading_score",
+    "writing score": "writing_score",
+    "test preparation course": "test_prep"
+})
+
+# Fit the model with corrected column names
+model = smf.ols("math_score ~ reading_score + C(test_prep)", data=df).fit()
+
+# Show summary
+print(model.summary())
+
+# Plot residuals vs. fitted values
+import matplotlib.pyplot as plt
+
+fitted_vals = model.fittedvalues
+residuals = model.resid
+
+plt.scatter(fitted_vals, residuals, alpha=0.5)
+plt.axhline(0, linestyle='--', color='red')
+plt.xlabel("Fitted Values")
+plt.ylabel("Residuals")
+plt.title("Residuals vs. Fitted Values")
+plt.show()
+
+#################################################
+
+Link of Colab:
+
+https://colab.research.google.com/drive/1uhWSN62c7kaa2EZ_nGsx84tHBiLlngWz
